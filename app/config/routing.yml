@@ -1,0 +1,16 @@
+djp_deployments:
+    resource: "@DJPDeploymentsBundle/Resources/config/routing.yml"
+    prefix:   /deployments/
+
+djp_user_management:
+    resource: "@DJPUserManagementBundle/Resources/config/routing.yml"
+    prefix:   /users/
+
+djp_release_manager_service:
+    resource: "@DJPReleaseManagerServiceBundle/Resources/config/routing.yml"
+    prefix:   /releases/
+
+djp_release_manager:
+    resource: "@DJPReleaseManagerBundle/Resources/config/routing.yml"
+    prefix:   /release/
+

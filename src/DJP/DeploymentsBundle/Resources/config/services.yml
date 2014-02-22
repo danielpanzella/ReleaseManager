@@ -1,0 +1,7 @@
+parameters:
+#    djp_deployments.example.class: DJP\DeploymentsBundle\Example
+
+services:
+#    djp_deployments.example:
+#        class: %djp_deployments.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,7 @@
+parameters:
+#    djp_user_management.example.class: DJP\UserManagementBundle\Example
+
+services:
+#    djp_user_management.example:
+#        class: %djp_user_management.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
