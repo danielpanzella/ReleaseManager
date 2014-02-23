@@ -3,6 +3,7 @@
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
+/app/sqlite.db
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /build/

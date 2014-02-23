@@ -35,6 +35,20 @@ class Build
      */
     private $vcsBranchId;
 
+    /**
+     * @var Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="builds")
+     */
+    private $project;
+
+    /**
+     * @var Deployment[]
+     *
+     * @ORM\OneToMany(targetEntity="Deployment", mappedBy="build")
+     */
+    private $deployments;
+
 
     /**
      * Get id
@@ -90,5 +104,42 @@ class Build
     public function getVcsBranchId()
     {
         return $this->vcsBranchId;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Deployment[] $deployments
+     */
+    public function setDeployments($deployments)
+    {
+        $this->deployments = $deployments;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Deployment[]
+     */
+    public function getDeployments()
+    {
+        return $this->deployments;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    public function __toString()
+    {
+        return (string)$this->id;
     }
 }

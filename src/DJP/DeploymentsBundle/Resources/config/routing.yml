@@ -1,3 +1,0 @@
-djp_deployments_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: DJPDeploymentsBundle:Default:index }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Environment
  *
- * @ORM\Table(name="deployments_environment")
+ * @ORM\Table()
  * @ORM\Entity(repositoryClass="DJP\DeploymentsBundle\Entity\EnvironmentRepository")
  */
 class Environment
@@ -27,6 +27,28 @@ class Environment
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @var Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="environments")
+     */
+    private $project;
+
+    /**
+     * @var Server[]
+     *
+     * @ORM\OneToMany(targetEntity="Server", mappedBy="environment")
+     */
+    private $servers;
+
+    /**
+     * @var Deployment[]
+     *
+     * @ORM\OneToMany(targetEntity="Deployment", mappedBy="environment")
+     */
+    private $deployents;
+
 
 
     /**
@@ -58,6 +80,59 @@ class Environment
      * @return string 
      */
     public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Deployment[] $deployents
+     */
+    public function setDeployents($deployents)
+    {
+        $this->deployents = $deployents;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Deployment[]
+     */
+    public function getDeployents()
+    {
+        return $this->deployents;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Server[] $servers
+     */
+    public function setServers($servers)
+    {
+        $this->servers = $servers;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Server[]
+     */
+    public function getServers()
+    {
+        return $this->servers;
+    }
+
+    public function __toString()
     {
         return $this->name;
     }

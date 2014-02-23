@@ -1,6 +1,7 @@
 djp_deployments:
-    resource: "@DJPDeploymentsBundle/Resources/config/routing.yml"
+    resource: "@DJPDeploymentsBundle/Controller"
     prefix:   /deployments/
+    type:     annotation
 
 djp_user_management:
     resource: "@DJPUserManagementBundle/Resources/config/routing.yml"
@@ -11,6 +12,7 @@ djp_release_manager_service:
     prefix:   /releases/
 
 djp_release_manager:
-    resource: "@DJPReleaseManagerBundle/Resources/config/routing.yml"
-    prefix:   /release/
+    resource: "@DJPReleaseManagerBundle/Controller"
+    prefix:   /
+    type:     annotation
 

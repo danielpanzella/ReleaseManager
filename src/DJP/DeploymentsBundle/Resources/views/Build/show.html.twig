@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Build</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Vcsrevisionid</th>
+                <td>{{ entity.vcsRevisionId }}</td>
+            </tr>
+            <tr>
+                <th>Vcsbranchid</th>
+                <td>{{ entity.vcsBranchId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('build') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('build_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

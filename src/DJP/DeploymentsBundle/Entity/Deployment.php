@@ -35,6 +35,27 @@ class Deployment
      */
     private $deployTime;
 
+    /**
+     * @var Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="deployments")
+     */
+    private $project;
+
+    /**
+     * @var Environment
+     *
+     * @ORM\ManyToOne(targetEntity="Environment", inversedBy="deployments")
+     */
+    private $environment;
+
+    /**
+     * @var Build
+     *
+     * @ORM\ManyToOne(targetEntity="Build", inversedBy="deployments")
+     */
+    private $build;
+
 
     /**
      * Get id
@@ -90,5 +111,58 @@ class Deployment
     public function getDeployTime()
     {
         return $this->deployTime;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Build $build
+     */
+    public function setBuild($build)
+    {
+        $this->build = $build;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Build
+     */
+    public function getBuild()
+    {
+        return $this->build;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Environment $environment
+     */
+    public function setEnvironment($environment)
+    {
+        $this->environment = $environment;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Environment
+     */
+    public function getEnvironment()
+    {
+        return $this->environment;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

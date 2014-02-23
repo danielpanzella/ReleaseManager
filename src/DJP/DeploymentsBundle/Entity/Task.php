@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Task
  *
- * @ORM\Table(name="deployments_task")
+ * @ORM\Table()
  * @ORM\Entity(repositoryClass="DJP\DeploymentsBundle\Entity\TaskRepository")
  */
 class Task
@@ -58,6 +58,11 @@ class Task
      * @return string 
      */
     public function getName()
+    {
+        return $this->name;
+    }
+
+    public function __toString()
     {
         return $this->name;
     }

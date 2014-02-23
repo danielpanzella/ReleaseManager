@@ -3,11 +3,26 @@
 namespace DJP\ReleaseManagerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+/**
+ * Default ReleaseManager controller.
+ *
+ * @Route("/")
+ */
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * Displays the home page
+     *
+     * @Route("/", name="home")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction($name = "World")
     {
-        return $this->render('DJPReleaseManagerBundle:Default:index.html.twig', array('name' => $name));
+        return array('name' => $name);
     }
 }
