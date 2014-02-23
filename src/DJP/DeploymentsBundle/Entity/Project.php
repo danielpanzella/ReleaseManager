@@ -184,6 +184,22 @@ class Project
         return $this->servers;
     }
 
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Source[] $sources
+     */
+    public function setSources($sources)
+    {
+        $this->sources = $sources;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Source[]
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
+
     public function __toString()
     {
         return $this->name;

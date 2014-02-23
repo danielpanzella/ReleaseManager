@@ -49,6 +49,13 @@ class Build
      */
     private $deployments;
 
+    /**
+     * @var Source
+     *
+     * @ORM\ManyToOne(targetEntity="Source", inversedBy="builds")
+     */
+    private $source;
+
 
     /**
      * Get id
@@ -136,6 +143,22 @@ class Build
     public function getProject()
     {
         return $this->project;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Source $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Source
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     public function __toString()

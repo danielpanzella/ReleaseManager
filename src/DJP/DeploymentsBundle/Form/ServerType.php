@@ -17,6 +17,10 @@ class ServerType extends AbstractType
         $builder
             ->add('hostname')
             ->add('ipAddress')
+            ->add('deployUser')
+            ->add('deployGroup')
+            ->add('authType')
+            ->add('password')
             ->add('project')
             ->add('roles')
             ->add('environment')

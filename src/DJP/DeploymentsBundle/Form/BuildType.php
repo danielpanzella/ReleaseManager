@@ -18,6 +18,7 @@ class BuildType extends AbstractType
             ->add('vcsRevisionId')
             ->add('vcsBranchId')
             ->add('project')
+            ->add('source')
         ;
     }
     

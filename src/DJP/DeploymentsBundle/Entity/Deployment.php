@@ -165,4 +165,12 @@ class Deployment
     {
         return $this->name;
     }
+
+    public function performDeployment()
+    {
+        $servers = $this->getEnvironment()->getServers();
+        foreach ($servers as $server) {
+            $server->deploy();
+        }
+    }
 }

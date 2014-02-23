@@ -45,9 +45,16 @@ class Source
     /**
      * @var Project
      *
-     * @ORM\ManyToOne(references="Project", inversedBy=sources)
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="sources")
      */
     private $project;
+
+    /**
+     * @var Build[]
+     *
+     * @ORM\OneToMany(targetEntity="Build", mappedBy="source")
+     */
+    private $builds;
 
     /**
      * Get id
@@ -126,5 +133,42 @@ class Source
     public function getBaseUrl()
     {
         return $this->baseUrl;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Build[] $builds
+     */
+    public function setBuilds($builds)
+    {
+        $this->builds = $builds;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Build[]
+     */
+    public function getBuilds()
+    {
+        return $this->builds;
+    }
+
+    /**
+     * @param \DJP\DeploymentsBundle\Entity\Project $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * @return \DJP\DeploymentsBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

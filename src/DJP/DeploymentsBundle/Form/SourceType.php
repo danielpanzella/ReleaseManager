@@ -18,6 +18,7 @@ class SourceType extends AbstractType
             ->add('name')
             ->add('type')
             ->add('baseUrl')
+            ->add('project')
         ;
     }
     

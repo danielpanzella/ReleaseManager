@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Server
 {
+    const AUTH_SSH_KEY = 'key';
+    const AUTH_PASSWORD = 'pass';
+
     /**
      * @var integer
      *
@@ -34,6 +37,34 @@ class Server
      * @ORM\Column(name="ipAddress", type="string", length=15)
      */
     private $ipAddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="deployUser", type="string", length=32)
+     */
+    private $deployUser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="deployGroup", type="string", length=32)
+     */
+    private $deployGroup;
+
+    /**
+     * @var string Specifies whether to authenticate with this server using an ssh key or password
+     *
+     * @ORM\Column(name="authType", type="string", length=4)
+     */
+    private $authType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="text")
+     */
+    private $password;
 
     /**
      * @var Project
@@ -113,6 +144,70 @@ class Server
     }
 
     /**
+     * @param string $authType
+     */
+    public function setAuthType($authType)
+    {
+        $this->authType = $authType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthType()
+    {
+        return $this->authType;
+    }
+
+    /**
+     * @param string $deployUser
+     */
+    public function setDeployUser($deployUser)
+    {
+        $this->deployUser = $deployUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeployUser()
+    {
+        return $this->deployUser;
+    }
+
+    /**
+     * @param string $deployGroup
+     */
+    public function setDeployGroup($deployGroup)
+    {
+        $this->deployGroup = $deployGroup;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeployGroup()
+    {
+        return $this->deployGroup;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
      * @param \DJP\DeploymentsBundle\Entity\Environment $environment
      */
     public function setEnvironment($environment)
@@ -158,6 +253,36 @@ class Server
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    public function deploy()
+    {
+        $deployer = deployer(false, array());
+        $roles = $this->getRoles();
+        $tasks = [];
+
+        if ($this->authType == self::AUTH_SSH_KEY) {
+            $password = new \Crypt_RSA();
+            $password->loadKey($this->password);
+        } else {
+            $password = $this->password;
+        }
+
+        $deployer->connect(
+            $this->ipAddress,
+            $this->deployUser,
+            $password
+        );
+
+        $deployer->run("touch imhere");
+
+        foreach($roles as $role) {
+            $tasks[] = $role->getTasks();
+        }
+
+        foreach ($tasks as $task) {
+
+        }
     }
 
     public function __toString()

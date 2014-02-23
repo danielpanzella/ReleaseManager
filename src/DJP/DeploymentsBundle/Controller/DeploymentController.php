@@ -152,6 +152,28 @@ class DeploymentController extends Controller
     }
 
     /**
+     * Displays a form to edit an existing Deployment entity.
+     *
+     * @Route("/{id}/run", name="deployment_run")
+     * @Method("GET")
+     * @Template()
+     */
+    public function runAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('DJPDeploymentsBundle:Deployment')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Deployment entity.');
+        }
+
+        $entity->performDeployment();
+
+        return ['entity' => print_r(\Doctrine\Common\Util\Debug::export($entity, 3), true)];
+    }
+
+    /**
     * Creates a form to edit a Deployment entity.
     *
     * @param Deployment $entity The entity
