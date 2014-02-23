@@ -63,6 +63,13 @@ class Project
      */
     private $deployments;
 
+    /**
+     * @var Source[]
+     *
+     * @ORM\OneToMany(targetEntity="Source", mappedBy="project")
+     */
+    private $sources;
+
 
     /**
      * Get id
