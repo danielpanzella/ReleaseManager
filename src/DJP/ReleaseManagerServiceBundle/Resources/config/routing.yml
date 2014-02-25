@@ -1,7 +1,0 @@
-api_projects:
-    type:     rest
-    name_prefix:  api_
-    resource: DJP\ReleaseManagerServiceBundle\Controller\ProjectsController
-
-api_projects:
-    resource: DJP\ReleaseManagerServiceBundle\Controller\

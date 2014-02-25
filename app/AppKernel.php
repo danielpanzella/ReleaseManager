@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new DJP\ReleaseManagerBundle\DJPReleaseManagerBundle(),
-            new DJP\ReleaseManagerServiceBundle\DJPReleaseManagerServiceBundle(),
             new DJP\UserManagementBundle\DJPUserManagementBundle(),
             new DJP\DeploymentsBundle\DJPDeploymentsBundle(),
         );

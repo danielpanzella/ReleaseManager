@@ -1,7 +1,0 @@
-parameters:
-#    djp_release_manager_service.example.class: DJP\ReleaseManagerServiceBundle\Example
-
-services:
-#    djp_release_manager_service.example:
-#        class: %djp_release_manager_service.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
