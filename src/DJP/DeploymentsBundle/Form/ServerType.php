@@ -42,6 +42,6 @@ class ServerType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_server';
+        return 'server';
     }
 }

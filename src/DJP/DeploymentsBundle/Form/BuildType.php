@@ -37,6 +37,6 @@ class BuildType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_build';
+        return 'build';
     }
 }

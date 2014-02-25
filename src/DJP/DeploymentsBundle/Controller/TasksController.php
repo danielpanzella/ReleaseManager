@@ -5,60 +5,60 @@ namespace DJP\DeploymentsBundle\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\FOSRestController;
-use DJP\DeploymentsBundle\Entity\Project;
-use DJP\DeploymentsBundle\Form\ProjectType;
+use DJP\DeploymentsBundle\Entity\Task;
+use DJP\DeploymentsBundle\Form\TaskType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProjectsController extends FOSRestController
+class TasksController extends FOSRestController
 {
     /**
      * @Rest\View()
      */
-    public function getProjectsAction()
+    public function getTasksAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DJPDeploymentsBundle:Project')->findAll();
+        $entities = $em->getRepository('DJPDeploymentsBundle:Task')->findAll();
 
         return $entities;
     }
 
-    public function postProjectAction(Request $request)
+    public function postTaskAction(Request $request)
     {
-        return $this->processForm(new Project(), $request);
+        return $this->processForm(new Task(), $request);
     }
 
     /**
      * @Rest\View()
      */
-    public function getProjectAction(Project $project)
+    public function getTaskAction(Task $task)
     {
-        if (!$project) {
-            throw $this->createNotFoundException('Unable to find Project.');
+        if (!$task) {
+            throw $this->createNotFoundException('Unable to find Task.');
         }
 
-        return $project;
+        return $task;
     }
 
     /**
      * @Rest\View()
      */
-    public function putProjectAction(Request $request, Project $project)
+    public function putTaskAction(Request $request, Task $task)
     {
-        return $this->processForm($project, $request);
+        return $this->processForm($task, $request);
     }
 
     /**
      * @Rest\View(statusCode=204)
      */
-    public function deleteProjectAction($id)
+    public function deleteTaskAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('DJPDeploymentsBundle:Project')->find($id);
+        $entity = $em->getRepository('DJPDeploymentsBundle:Task')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Project.');
+            throw $this->createNotFoundException('Unable to find Task.');
         }
 
         $em->remove($entity);
@@ -66,25 +66,25 @@ class ProjectsController extends FOSRestController
     }
 
     /**
-     * Creates a form to edit a Project entity.
+     * Creates a form to edit a Task entity.
      *
-     * @param Project $project The entity
+     * @param Task $task The entity
      * @param Request $request The HTTP request
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function processForm(Project $project, Request $request)
+    private function processForm(Task $task, Request $request)
     {
-        $statusCode = $project->getId() ? 204 : 201;
+        $statusCode = $task->getId() ? 204 : 201;
 
-        $form = $this->createForm(new ProjectType(), $project);
+        $form = $this->createForm(new TaskType(), $task);
         //$form->handleRequest($request);
         $form->submit($request);
 
         if ($form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($project);
+            $em->persist($task);
             $em->flush();
 
             $response = new Response();
@@ -93,8 +93,8 @@ class ProjectsController extends FOSRestController
                 $response->headers->set(
                     "Location",
                     $this->generateUrl(
-                        'deploy_get_project',
-                        array('project' => $project->getId())
+                        'deploy_get_task',
+                        array('task' => $task->getId())
                     )
                 );
             }

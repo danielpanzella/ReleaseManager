@@ -37,6 +37,6 @@ class SourceType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_source';
+        return 'source';
     }
 }

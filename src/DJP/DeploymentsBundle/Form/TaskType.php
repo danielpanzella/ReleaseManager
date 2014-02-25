@@ -39,6 +39,6 @@ class TaskType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_task';
+        return 'task';
     }
 }

@@ -38,6 +38,6 @@ class DeploymentType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_deployment';
+        return 'deployment';
     }
 }

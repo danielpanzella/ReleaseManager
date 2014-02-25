@@ -5,60 +5,60 @@ namespace DJP\DeploymentsBundle\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\FOSRestController;
-use DJP\DeploymentsBundle\Entity\Project;
-use DJP\DeploymentsBundle\Form\ProjectType;
+use DJP\DeploymentsBundle\Entity\Deployment;
+use DJP\DeploymentsBundle\Form\DeploymentType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProjectsController extends FOSRestController
+class DeploymentsController extends FOSRestController
 {
     /**
      * @Rest\View()
      */
-    public function getProjectsAction()
+    public function getDeploymentsAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DJPDeploymentsBundle:Project')->findAll();
+        $entities = $em->getRepository('DJPDeploymentsBundle:Deployment')->findAll();
 
         return $entities;
     }
 
-    public function postProjectAction(Request $request)
+    public function postDeploymentAction(Request $request)
     {
-        return $this->processForm(new Project(), $request);
+        return $this->processForm(new Deployment(), $request);
     }
 
     /**
      * @Rest\View()
      */
-    public function getProjectAction(Project $project)
+    public function getDeploymentAction(Deployment $deployment)
     {
-        if (!$project) {
-            throw $this->createNotFoundException('Unable to find Project.');
+        if (!$deployment) {
+            throw $this->createNotFoundException('Unable to find Deployment.');
         }
 
-        return $project;
+        return $deployment;
     }
 
     /**
      * @Rest\View()
      */
-    public function putProjectAction(Request $request, Project $project)
+    public function putDeploymentAction(Request $request, Deployment $deployment)
     {
-        return $this->processForm($project, $request);
+        return $this->processForm($deployment, $request);
     }
 
     /**
      * @Rest\View(statusCode=204)
      */
-    public function deleteProjectAction($id)
+    public function deleteDeploymentAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('DJPDeploymentsBundle:Project')->find($id);
+        $entity = $em->getRepository('DJPDeploymentsBundle:Deployment')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Project.');
+            throw $this->createNotFoundException('Unable to find Deployment.');
         }
 
         $em->remove($entity);
@@ -66,25 +66,25 @@ class ProjectsController extends FOSRestController
     }
 
     /**
-     * Creates a form to edit a Project entity.
+     * Creates a form to edit a Deployment entity.
      *
-     * @param Project $project The entity
+     * @param Deployment $deployment The entity
      * @param Request $request The HTTP request
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function processForm(Project $project, Request $request)
+    private function processForm(Deployment $deployment, Request $request)
     {
-        $statusCode = $project->getId() ? 204 : 201;
+        $statusCode = $deployment->getId() ? 204 : 201;
 
-        $form = $this->createForm(new ProjectType(), $project);
+        $form = $this->createForm(new DeploymentType(), $deployment);
         //$form->handleRequest($request);
         $form->submit($request);
 
         if ($form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($project);
+            $em->persist($deployment);
             $em->flush();
 
             $response = new Response();
@@ -93,8 +93,8 @@ class ProjectsController extends FOSRestController
                 $response->headers->set(
                     "Location",
                     $this->generateUrl(
-                        'deploy_get_project',
-                        array('project' => $project->getId())
+                        'deploy_get_deployment',
+                        array('deployment' => $deployment->getId())
                     )
                 );
             }

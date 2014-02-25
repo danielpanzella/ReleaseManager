@@ -5,60 +5,60 @@ namespace DJP\DeploymentsBundle\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\FOSRestController;
-use DJP\DeploymentsBundle\Entity\Project;
-use DJP\DeploymentsBundle\Form\ProjectType;
+use DJP\DeploymentsBundle\Entity\Source;
+use DJP\DeploymentsBundle\Form\SourceType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProjectsController extends FOSRestController
+class SourcesController extends FOSRestController
 {
     /**
      * @Rest\View()
      */
-    public function getProjectsAction()
+    public function getSourcesAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DJPDeploymentsBundle:Project')->findAll();
+        $entities = $em->getRepository('DJPDeploymentsBundle:Source')->findAll();
 
         return $entities;
     }
 
-    public function postProjectAction(Request $request)
+    public function postSourceAction(Request $request)
     {
-        return $this->processForm(new Project(), $request);
+        return $this->processForm(new Source(), $request);
     }
 
     /**
      * @Rest\View()
      */
-    public function getProjectAction(Project $project)
+    public function getSourceAction(Source $source)
     {
-        if (!$project) {
-            throw $this->createNotFoundException('Unable to find Project.');
+        if (!$source) {
+            throw $this->createNotFoundException('Unable to find Source.');
         }
 
-        return $project;
+        return $source;
     }
 
     /**
      * @Rest\View()
      */
-    public function putProjectAction(Request $request, Project $project)
+    public function putSourceAction(Request $request, Source $source)
     {
-        return $this->processForm($project, $request);
+        return $this->processForm($source, $request);
     }
 
     /**
      * @Rest\View(statusCode=204)
      */
-    public function deleteProjectAction($id)
+    public function deleteSourceAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('DJPDeploymentsBundle:Project')->find($id);
+        $entity = $em->getRepository('DJPDeploymentsBundle:Source')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Project.');
+            throw $this->createNotFoundException('Unable to find Source.');
         }
 
         $em->remove($entity);
@@ -66,25 +66,25 @@ class ProjectsController extends FOSRestController
     }
 
     /**
-     * Creates a form to edit a Project entity.
+     * Creates a form to edit a Source entity.
      *
-     * @param Project $project The entity
+     * @param Source $source The entity
      * @param Request $request The HTTP request
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function processForm(Project $project, Request $request)
+    private function processForm(Source $source, Request $request)
     {
-        $statusCode = $project->getId() ? 204 : 201;
+        $statusCode = $source->getId() ? 204 : 201;
 
-        $form = $this->createForm(new ProjectType(), $project);
+        $form = $this->createForm(new SourceType(), $source);
         //$form->handleRequest($request);
         $form->submit($request);
 
         if ($form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($project);
+            $em->persist($source);
             $em->flush();
 
             $response = new Response();
@@ -93,8 +93,8 @@ class ProjectsController extends FOSRestController
                 $response->headers->set(
                     "Location",
                     $this->generateUrl(
-                        'deploy_get_project',
-                        array('project' => $project->getId())
+                        'deploy_get_source',
+                        array('source' => $source->getId())
                     )
                 );
             }

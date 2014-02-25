@@ -1,4 +1,39 @@
+deploy_builds:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\BuildsController
+
+deploy_deployments:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\TasksController
+
+deploy_environments:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\EnvironmentsController
+
 deploy_projects:
     type:     rest
     name_prefix:  deploy_
     resource: DJP\DeploymentsBundle\Controller\ProjectsController
+
+deploy_roles:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\RolesController
+
+deploy_servers:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\ServersController
+
+deploy_sources:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\SourcesController
+
+deploy_tasks:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\TasksController

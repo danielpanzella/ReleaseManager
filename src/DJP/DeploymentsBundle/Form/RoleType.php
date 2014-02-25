@@ -36,6 +36,6 @@ class RoleType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_role';
+        return 'role';
     }
 }

@@ -35,6 +35,6 @@ class ProjectType extends AbstractType
      */
     public function getName()
     {
-        return 'djp_deploymentsbundle_project';
+        return 'project';
     }
 }
