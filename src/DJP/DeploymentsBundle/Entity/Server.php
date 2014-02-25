@@ -276,12 +276,22 @@ class Server
 
         $deployer->run("touch imhere");
 
+
+
         foreach($roles as $role) {
-            $tasks[] = $role->getTasks();
+            $tmpTasks = $role->getTasks();
+            foreach ($tmpTasks as $task) {
+                $tasks[] = $task;
+            }
         }
 
         foreach ($tasks as $task) {
+            $command = $task->getCommandType();
+            $args = $task->getCommandArguments();
 
+            if (method_exists($deployer, $command)) {
+                call_user_func_array(array($deployer, $command), $args);
+            }
         }
     }
 

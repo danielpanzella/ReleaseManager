@@ -25,7 +25,8 @@ class ProjectType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DJP\DeploymentsBundle\Entity\Project'
+            'data_class' => 'DJP\DeploymentsBundle\Entity\Project',
+            'csrf_protection'   => false,
         ));
     }
 

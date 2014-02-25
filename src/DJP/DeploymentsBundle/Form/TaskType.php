@@ -16,6 +16,11 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('isAssignable')
+            ->add('commandType')
+            ->add('commandArguments')
+            ->add('subTasks')
+            ->add('parentTask')
         ;
     }
     

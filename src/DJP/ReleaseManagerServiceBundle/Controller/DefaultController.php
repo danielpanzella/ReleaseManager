@@ -4,10 +4,20 @@ namespace DJP\ReleaseManagerServiceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Default ReleaseManager controller.
+ *
+ * @Route("/")
+ */
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * @Route("/", name="rms_home")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction($name = "World")
     {
-        return $this->render('DJPReleaseManagerServiceBundle:Default:index.html.twig', array('name' => $name));
+        return array('name' => $name);
     }
 }

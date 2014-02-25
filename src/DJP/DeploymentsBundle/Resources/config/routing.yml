@@ -1,0 +1,4 @@
+deploy_projects:
+    type:     rest
+    name_prefix:  deploy_
+    resource: DJP\DeploymentsBundle\Controller\ProjectsController
