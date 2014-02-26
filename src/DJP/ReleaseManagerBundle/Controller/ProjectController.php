@@ -5,6 +5,7 @@ namespace DJP\ReleaseManagerBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use DJP\DeploymentsBundle\Entity as Deploy;
 
 /**
  * @Route("/projects")
@@ -18,7 +19,10 @@ class ProjectController extends Controller
      */
     public function indexAction()
     {
-        return array('name' => "");
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('DJPDeploymentsBundle:Project')->findAll();
+        return array( "projects" => $entities);
     }
 
     /**
@@ -31,12 +35,12 @@ class ProjectController extends Controller
     }
 
     /**
-     * @Route("/view")
+     * @Route("/{project}")
      * @Template()
      */
-    public function viewAction()
+    public function manageAction(Deploy\Project $project)
     {
-        return array('name' => "");
+        return $project;
     }
 
     /**

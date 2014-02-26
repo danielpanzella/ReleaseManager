@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Role;
 use DJP\DeploymentsBundle\Form\RoleType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * RolesController
+ *
+ * @Resource("Role")
+ */
 class RolesController extends FOSRestController
 {
     /**

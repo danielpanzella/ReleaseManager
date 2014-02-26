@@ -12,3 +12,6 @@ djp_release_manager:
     prefix:   /
     type:     annotation
 
+dokapi:
+    prefix:   /dokapi
+    resource: "@DokapiSwaggerBundle/Resources/config/routing.yml"

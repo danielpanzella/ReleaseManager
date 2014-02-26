@@ -42,7 +42,7 @@ class Project
      *
      * @ORM\OneToMany(targetEntity="Environment", mappedBy="project")
      */
-    private $environemnts;
+    private $environments;
 
     /**
      * @var Server[]
@@ -139,19 +139,19 @@ class Project
     }
 
     /**
-     * @param \DJP\DeploymentsBundle\Entity\Environment[] $environemnts
+     * @param \DJP\DeploymentsBundle\Entity\Environment[] $environments
      */
-    public function setEnvironemnts($environemnts)
+    public function setEnvironments($environments)
     {
-        $this->environemnts = $environemnts;
+        $this->environments = $environments;
     }
 
     /**
      * @return \DJP\DeploymentsBundle\Entity\Environment[]
      */
-    public function getEnvironemnts()
+    public function getEnvironments()
     {
-        return $this->environemnts;
+        return $this->environments;
     }
 
     /**

@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Deployment;
 use DJP\DeploymentsBundle\Form\DeploymentType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * DeploymentsController
+ *
+ * @Resource("Deployment")
+ */
 class DeploymentsController extends FOSRestController
 {
     /**

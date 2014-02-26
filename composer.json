@@ -42,7 +42,9 @@
         "jquery/jquery":  "1.10.*",
         "gentle/bitbucket-api": "dev-master",
         "knplabs/github-api": "1.3.*@dev",
-        "jms/serializer-bundle": "*"
+        "jms/serializer-bundle": "*",
+        "dokapi/swagger-bundle": "0.1.*@dev",
+        "dokapi/dokapi-rest": "~0.1@dev"
     },
     "scripts": {
         "post-install-cmd": [

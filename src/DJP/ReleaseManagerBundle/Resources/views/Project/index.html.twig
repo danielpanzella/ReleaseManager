@@ -1,7 +1,36 @@
-{% extends "DJPReleaseManagerBundle::base.html.twig" %}
+{% extends "::base.html.twig" %}
 
 {% block title %}DJPReleaseManagerBundle:Project:index{% endblock %}
 
 {% block body %}
-    <h1>Welcome to the Project:index page</h1>
+{% for project in projects %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ project.name }}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+            {% for environment in project.environments %}
+                <div class="col-sm-3">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">{{ environment.name }}</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a type="button" class="btn btn-default" href="{{ path('djp_releasemanager_project_manage', {'project': project.id}) }}">
+                <span class="glyphicon glyphicon-edit"></span> Manage</a>
+            <a type="button" class="btn btn-warning" href="{{ path('djp_releasemanager_project_manage', {'project': project.id}) }}">
+                <span class="glyphicon glyphicon-off"></span> Deactivate</a>
+            <a type="button" class="btn btn-danger" href="{{ path('djp_releasemanager_project_manage', {'project': project.id}) }}">
+                <span class="glyphicon glyphicon-remove"></span> Delete</a>
+        </div>
+    </div>
+
+{% endfor %}
 {% endblock %}

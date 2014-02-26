@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Task;
 use DJP\DeploymentsBundle\Form\TaskType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * TasksController
+ *
+ * @Resource("Task")
+ */
 class TasksController extends FOSRestController
 {
     /**

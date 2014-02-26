@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Source;
 use DJP\DeploymentsBundle\Form\SourceType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * SourcesController
+ *
+ * @Resource("Source")
+ */
 class SourcesController extends FOSRestController
 {
     /**

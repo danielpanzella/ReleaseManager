@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Server;
 use DJP\DeploymentsBundle\Form\ServerType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * ServersController
+ *
+ * @Resource("Server")
+ */
 class ServersController extends FOSRestController
 {
     /**

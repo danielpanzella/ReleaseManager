@@ -47,7 +47,7 @@ class Environment
      *
      * @ORM\OneToMany(targetEntity="Deployment", mappedBy="environment")
      */
-    private $deployents;
+    private $deployments;
 
 
 
@@ -85,19 +85,19 @@ class Environment
     }
 
     /**
-     * @param \DJP\DeploymentsBundle\Entity\Deployment[] $deployents
+     * @param \DJP\DeploymentsBundle\Entity\Deployment[] $deployments
      */
-    public function setDeployents($deployents)
+    public function setDeployments($deployments)
     {
-        $this->deployents = $deployents;
+        $this->deployments = $deployments;
     }
 
     /**
      * @return \DJP\DeploymentsBundle\Entity\Deployment[]
      */
-    public function getDeployents()
+    public function getDeployments()
     {
-        return $this->deployents;
+        return $this->deployments;
     }
 
     /**

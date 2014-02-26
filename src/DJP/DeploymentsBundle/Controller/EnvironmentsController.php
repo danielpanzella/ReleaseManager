@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Environment;
 use DJP\DeploymentsBundle\Form\EnvironmentType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * EnvironmentsController
+ *
+ * @Resource("Environment")
+ */
 class EnvironmentsController extends FOSRestController
 {
     /**

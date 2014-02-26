@@ -1,0 +1,159 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Manage Project{% endblock %}
+
+{% block body %}
+    <div class="row panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Servers</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Roles</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#web">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                Webserver
+                            </a>
+                            <div id="web" class="collapse">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#sql">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                MySQL
+                            </a>
+                            <div id="sql" class="collapse">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#denorm">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                Denormalizer
+                            </a>
+                            <div id="denorm" class="collapse">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#mongo">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                MongoDB
+                            </a>
+                            <div id="mongo" class="collapse">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="list-group-item" data-toggle="collapse" data-target="#worker">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                Job Worker
+                            </a>
+                            <div id="worker" class="collapse">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Recent Builds</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#"  class="list-group-item">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-share"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-download-alt"></span></span>
+                                Cras justo odio
+                            </a>
+                            <a href="#"  class="list-group-item">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-share"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-download-alt"></span></span>
+                                Dapibus ac facilisis in
+                            </a>
+                            <a href="#"  class="list-group-item">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-share"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-download-alt"></span></span>
+                                Morbi leo risus
+                            </a>
+                            <a href="#"  class="list-group-item">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-share"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-download-alt"></span></span>
+                                Porta ac consectetur ac
+                            </a>
+                            <a href="#"  class="list-group-item">
+                                <span class="badge"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-share"></span></span>
+                                <span class="badge"><span class="glyphicon glyphicon-download-alt"></span></span>
+                                Vestibulum at eros
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Recent Deployments</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

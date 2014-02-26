@@ -32,7 +32,7 @@ twig:
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
-    use_controller: false
+    use_controller: true
     bundles:        [ DJPReleaseManagerBundle ]
     #java: /usr/bin/java
     filters:
@@ -94,3 +94,28 @@ fos_rest:
 sensio_framework_extra:
     view:    { annotations: false }
     router:  { annotations: true }
+
+dokapi_swagger:
+    cache:
+        warmup: true                                 #generate documentation during warmup
+        directory: %kernel.cache_dir%/dokapi_swagger # by default
+    schema:
+        directory: %kernel.cache_dir%/dokapi_swagger #will combine %kernel.cache_dir% and cache.directory
+        allow_origin: "*"                            #controller return json with Access-Control-Allow-Origin header
+    scan:
+        version_operation: null                      # see on VersionOperation chapter.
+        scanner: dokapi.swagger.default_scanner      # by default
+        path:                                        # can be scalar
+            - "%kernel.root_dir%/../src/"
+    processors:
+        raw_php:    true
+        annotation: true
+        fos_rest:   true # integration in fos_rest
+        api_distributor:
+            enable: true
+            host:   http://localhost:8000/dokapi/
+            produce: [json]
+            consume: [json]
+        #customs:
+        #    - @custom.processor.service
+        #    - Custom\Class

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7aaaa6de4feed1fff91215b29210096b",
+    "hash": "4fb702b8f49c6ad9ac6d4542b3d48894",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -686,6 +686,157 @@
             "time": "2014-02-08 16:35:09"
         },
         {
+            "name": "dokapi/dokapi",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dokapi/dokapi.git",
+                "reference": "46504dd5c4f125872aacb3a73ee688ae5d6b6daf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dokapi/dokapi/zipball/46504dd5c4f125872aacb3a73ee688ae5d6b6daf",
+                "reference": "46504dd5c4f125872aacb3a73ee688ae5d6b6daf",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "~1.0",
+                "php": ">=5.3.2",
+                "symfony/finder": "~2.1"
+            },
+            "require-dev": {
+                "atoum/atoum": "*"
+            },
+            "type": "standalone",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dokapi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributors",
+                    "homepage": "https://github.com/dokapi/dokapi/contributors"
+                }
+            ],
+            "description": "Documentation generator",
+            "homepage": "https://github.com/dokapi/dokapi",
+            "keywords": [
+                "documentation"
+            ],
+            "time": "2014-02-06 13:46:11"
+        },
+        {
+            "name": "dokapi/dokapi-rest",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dokapi/dokapi-rest.git",
+                "reference": "ac3022a1995a97a9a48e40df0b35aa93694d06e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dokapi/dokapi-rest/zipball/ac3022a1995a97a9a48e40df0b35aa93694d06e9",
+                "reference": "ac3022a1995a97a9a48e40df0b35aa93694d06e9",
+                "shasum": ""
+            },
+            "require": {
+                "dokapi/dokapi": "~0.1",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "atoum/atoum": "*"
+            },
+            "type": "standalone",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dokapi\\DokapiRest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributors",
+                    "homepage": "https://github.com/dokapi/dokapi-rest/contributors"
+                }
+            ],
+            "description": "Rest Documentation generator",
+            "homepage": "https://github.com/dokapi/dokapi-rest",
+            "keywords": [
+                "api",
+                "documentation",
+                "rest"
+            ],
+            "time": "2014-02-17 11:39:57"
+        },
+        {
+            "name": "dokapi/swagger-bundle",
+            "version": "dev-master",
+            "target-dir": "Dokapi/SwaggerBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dokapi/SwaggerBundle.git",
+                "reference": "ae789ad0ea657218a61687b700b00667a30da917"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dokapi/SwaggerBundle/zipball/ae789ad0ea657218a61687b700b00667a30da917",
+                "reference": "ae789ad0ea657218a61687b700b00667a30da917",
+                "shasum": ""
+            },
+            "require": {
+                "dokapi/dokapi-rest": "~0.1",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Dokapi\\SwaggerBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/dokapi/SwaggerBundle/contributors"
+                }
+            ],
+            "description": "Generate Swagger documentation",
+            "homepage": "https://github.com/dokapi/SwaggerBundle",
+            "keywords": [
+                "api",
+                "bundle",
+                "doc"
+            ],
+            "time": "2014-02-18 17:54:26"
+        },
+        {
             "name": "elfet/deployer",
             "version": "dev-master",
             "source": {
@@ -814,15 +965,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gentlero/bitbucket-api.git",
-                "reference": "aaa64b75141d4f80feb024b013acb9fd82324e9b"
+                "reference": "7929c508bfab14240ff935d04fa5a95ac2f0f37c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gentlero/bitbucket-api/zipball/aaa64b75141d4f80feb024b013acb9fd82324e9b",
-                "reference": "aaa64b75141d4f80feb024b013acb9fd82324e9b",
+                "url": "https://api.github.com/repos/gentlero/bitbucket-api/zipball/7929c508bfab14240ff935d04fa5a95ac2f0f37c",
+                "reference": "7929c508bfab14240ff935d04fa5a95ac2f0f37c",
                 "shasum": ""
             },
             "require": {
+                "jacobkiers/oauth": "1.0.10",
                 "kriswallsmith/buzz": "0.10",
                 "php": ">=5.3"
             },
@@ -857,7 +1009,7 @@
                 "api",
                 "bitbucket"
             ],
-            "time": "2014-02-13 19:07:32"
+            "time": "2014-02-24 15:51:58"
         },
         {
             "name": "guzzle/guzzle",
@@ -1002,6 +1154,65 @@
                 "parameters management"
             ],
             "time": "2013-12-07 10:10:39"
+        },
+        {
+            "name": "jacobkiers/oauth",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jacobkiers/OAuth.git",
+                "reference": "4f352302a1d633cf9037c905cfd36bc629030846"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jacobkiers/OAuth/zipball/4f352302a1d633cf9037c905cfd36bc629030846",
+                "reference": "4f352302a1d633cf9037c905cfd36bc629030846",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "phpunit/phpunit": "3.7.*@stable",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JacobKiers\\OAuth": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gary Jones",
+                    "email": "gary@garyjones.co.uk",
+                    "role": "developer"
+                },
+                {
+                    "name": "Jacob Kiers",
+                    "email": "jacob@alphacomm.nl",
+                    "role": "developer"
+                },
+                {
+                    "name": "Alexandre Eher",
+                    "role": "Composer packager"
+                },
+                {
+                    "name": "Andy Smith",
+                    "role": "original author"
+                }
+            ],
+            "description": "Based on Andy Smith's basic PHP library for OAuth 1.0a",
+            "homepage": "https://github.com/jacobkiers/OAuth",
+            "keywords": [
+                "oauth"
+            ],
+            "time": "2014-02-21 17:39:51"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -2570,7 +2781,9 @@
         "elfet/deployer": 20,
         "braincrafted/bootstrap-bundle": 15,
         "gentle/bitbucket-api": 20,
-        "knplabs/github-api": 20
+        "knplabs/github-api": 20,
+        "dokapi/swagger-bundle": 20,
+        "dokapi/dokapi-rest": 20
     },
     "platform": {
         "php": ">=5.3.3"

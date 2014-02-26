@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Project;
 use DJP\DeploymentsBundle\Form\ProjectType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * ProjectsController
+ *
+ * @Resource("Project")
+ */
 class ProjectsController extends FOSRestController
 {
     /**

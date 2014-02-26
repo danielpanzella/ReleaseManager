@@ -9,18 +9,20 @@
     <title>{% block title %}Release Manager{% endblock %}</title>
 
     {% block javascripts %}
-        <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Include all JavaScripts, compiled by Assetic -->
-        <script src="{{ asset('/js/bootstrap.js') }}"></script>
-        {% javascripts '@DJPReleaseManagerBundle/Resources/public/js/*' %}
+        {% javascripts
+            '@jquery'
+            '@bootstrap_js'
+            'js/hinclude.js'
+            'js/docs.min.js'
+        %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
 
     {% block stylesheets %}
-        <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
-        {% stylesheets '@DJPReleaseManagerBundle/Resources/public/css/*' filter='cssrewrite' %}
+        {% stylesheets
+            'css/bootstrap.css' 'css/wrapper.css' filter='less,cssrewrite'
+        %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
@@ -29,7 +31,7 @@
     {% endblock %}
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,30 +42,13 @@
             </button>
             <a class="navbar-brand" href="#">Release Manager</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 {%  block navbar  %}
-                    <li class="active"><a href="{{ path('home') }}">Home</a></li>
-                    <li><a href="{{ path('home') }}">About</a></li>
-                    <li><a href="{{ path('home') }}">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('home') }}">Action</a></li>
-                            <li><a href="{{ path('home') }}">Another action</a></li>
-                            <li><a href="{{ path('home') }}">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="{{ path('home') }}">Separated link</a></li>
-                            <li><a href="{{ path('home') }}">One more separated link</a></li>
-                        </ul>
-                    </li>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 {% endblock %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li><a href="../navbar-static-top/">Static top</a></li>
-                <li class="active"><a href="./">Fixed top</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -71,35 +56,7 @@
 
 
 <div class="container-fluid">
-    <div class="row">
-
-        <div class="col-sm-3 col-md-2 sidebar">
-            {% block sidebar %}
-                <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Overview</a></li>
-                    <li><a href="#">Reports</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                    <li><a href="">More navigation</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                </ul>
-            {% endblock %}
-        </div>
-
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             {% block body %}{% endblock %}
-        </div>
-    </div>
 </div>
 
 </body>

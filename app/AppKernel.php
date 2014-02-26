@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new DJP\ReleaseManagerBundle\DJPReleaseManagerBundle(),
             new DJP\UserManagementBundle\DJPUserManagementBundle(),
             new DJP\DeploymentsBundle\DJPDeploymentsBundle(),
+            new \Dokapi\SwaggerBundle\DokapiSwaggerBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

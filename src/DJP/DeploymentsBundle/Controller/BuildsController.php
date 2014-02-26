@@ -9,7 +9,13 @@ use DJP\DeploymentsBundle\Entity\Build;
 use DJP\DeploymentsBundle\Form\BuildType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Dokapi\DokapiRest\Annotation\Resource;
 
+/**
+ * BuildsController
+ *
+ * @Resource("Build")
+ */
 class BuildsController extends FOSRestController
 {
     /**
